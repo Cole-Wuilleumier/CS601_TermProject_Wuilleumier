@@ -1,5 +1,5 @@
 # CS601_TermProject_Wuilleumier
-This repository contains the code for CS601 Term Project.
+This repository contains the code for CS601 Term Project. This live site is hosted at Netlify (https://cole-wuilleumier.netlify.app/).
 
 ## Goal of the Project
 The goal of this project is to demostrate the web development skills that I have learn in CS601.
