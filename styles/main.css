@@ -1,0 +1,514 @@
+:root {
+    --text-color:#000;
+    --light-text-color:#FFF;
+    --main-container-width: 800px;
+    --primary-dark-color: #264653;
+    --secondary-dark-color:#2A9D8F;
+    --primary-light-color: #E9C46A;
+    --secondary-light-color: #F4A261;
+    --secondary-color: #E76F51;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--text-color);
+}
+
+header, footer{
+    width:100%;
+}
+
+a {
+    text-decoration:none;
+    color:var(--secondary-color);
+}
+
+a:hover {
+    text-decoration:none;
+    color:var(--secondary-dark-color);
+}
+
+main {
+    position:relative;
+    display:block;
+    max-width:var(--main-container-width);
+    margin:0 auto;
+}
+
+article{
+    display: block;
+}
+
+section{
+    margin: 5px 1em;
+}
+
+figure{
+    display: block;
+    margin:0 auto;
+}
+
+iframe{
+    width: 100%;
+}
+
+/**Nav styles**/
+nav{
+    margin-top: 13px;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    display:block;
+    padding:1em 2em;
+    margin-left:2px;
+    margin-right:2px;
+    color: #000;
+}
+
+nav ul li:hover{
+    background-color:var(--secondary-dark-color);
+    transition-duration:.5s;
+}
+
+nav ul li:hover{
+    background-color:var(--secondary-dark-color);
+    transition-duration:.5s;
+}
+
+
+
+/**Mobile Grid**/
+.nav-grid {
+    display: grid;
+    grid-template-areas:
+      'nav-col1'
+      'nav-col2';
+    gap:10px;
+}
+
+
+#profile-start{
+    display:inline-block;
+    line-height: 0em;
+    font-size: 1em;
+}
+
+#profile-pic{
+    display:block;
+    max-width: 350px;
+    margin:0 auto;
+    border-radius:50%;
+}
+
+
+/**Resume specific styles**/
+#resume-picture{
+    display: block;
+    margin:0 auto;
+    max-width: 350px;
+}
+
+.resume-expereience>ul{
+    list-style-type: none;
+}
+
+/**Fitness page specific styles**/
+.fitness-table{
+    max-width:800px;
+    min-width:300px;
+    width: 100%;
+    margin:0 auto;
+}
+
+.fitness-table thead{
+    background-color:var(--secondary-dark-color);
+    color: var(--light-text-color);
+}
+
+.fitness-table th{
+    text-align:left;
+    padding-right: 1em;
+}
+
+.fitness-table thead,.fitness-table tfoot{
+    border-radius:20px;
+}
+
+.fitness-table tr{
+    padding:5px;
+}
+
+.fitness-table tr:nth-child(even){
+    background-color:#ddd;
+}
+
+.fitness-table tbody tr:hover{
+    background-color:var(--secondary-light-color);
+    transition-duration:.5s;
+}
+
+.fitness-table .fitness-value{
+    text-align: right;
+}
+
+.fitness-table tfoot{
+    background-color:var(--secondary-color);
+    color: var(--light-text-color);
+}
+
+
+.image-buttons button, input[type=submit] {
+    display: inline-block;
+    background-color: #264653;
+    color: #fff;
+    padding: 10px 20px;
+    border: 0px;
+    width: 50%;
+    margin:0;
+    cursor:pointer;
+}
+
+.float-left{
+    float:left;
+}
+
+.image-buttons button:hover, input[type=submit]:hover{
+    display: inline-block;
+    background-color: #2A9D8F;
+    transition: .5s;
+
+}
+
+
+/** Photos Page**/
+.single-image-container{
+    display:block;
+    max-width:800px;
+    margin:0 auto;
+}
+
+.single-image-container img{
+    display: block;
+    max-width: 700px;
+    max-height: 70vh;
+    margin:0 auto;
+    margin-top: 20px;
+}
+
+.single-image-container figcaption{
+    text-align: center;
+}
+
+.multi-image-container {
+    display:block;
+    max-width: 800px;
+    margin:0 auto;
+}
+
+.multi-image-container img{
+    display:block;
+    max-width: 100%;
+    margin:0 auto;
+}
+
+.multi-image-container img:hover{
+    opacity: 75%;
+    cursor: pointer;
+    transition:.5s;
+}
+
+.multi-image-container .image-block{
+    display: inline-block;
+    padding: 10px;
+    max-width: 100%;
+    width:100%;
+    margin: 0px auto;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none !important;
+}
+
+.errorMsg {
+    border-radius: 25px;
+    padding:10px;
+    background-color:rgba(255, 0,  0,.5);
+}
+
+.header-buttons{
+    margin: 0 auto;
+    display:inline-block;
+}
+
+.header-buttons li{
+    display:inline-block;
+    padding: 10px 20px;
+    background-color:#264653;
+    color:#fff;
+}
+
+.header-buttons li:hover{
+    display:inline-block;
+    padding: 10px 20px;
+    background-color:#2A9D8F;
+    color:#fff;
+    transition:.5s;
+    cursor: pointer;
+}
+
+.header-buttons .active, .image-buttons .active{
+    background-color:#2A9D8F;
+    color:#fff;
+}
+
+/*music page*/
+.music-iframe{
+    width: 100%;
+    height: 400px;
+}
+
+
+.music-grid img{
+    display:block;
+    max-width: 600px;
+    width:90%;
+    margin:0px auto;
+}
+
+/** Music Pgae **/
+.music-image-container{
+    display:block;
+    max-width: 800px;
+    margin:0 auto;
+}
+
+.music-image-container .image-block{
+    display: inline-block;
+    padding: 10px;
+    max-width: 200px;
+    margin: 0px auto;
+}
+
+.music-image-container img{
+    display: inline-block;
+    width: 100%;
+    cursor:pointer;
+}
+
+.music-image-container figcaption{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.music-image-container img:hover{
+    opacity:75%;
+    transition:.5s;
+}
+
+.music-single-image-container{
+    display: block;
+}
+
+.music-single-image-container img{
+    display:block;
+    width: 100%;
+    max-width:600px;
+    margin:0 auto;
+}
+
+/** Contact Page**/
+#beforeFormSubmit{
+    max-width:800px;
+    width:100%;
+}
+
+#beforeFormSubmit textarea{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#beforeFormSubmit input{
+    margin-top: 20px;
+}
+
+#beforeFormSubmit label{
+    font-weight:600;
+}
+
+
+/** Tablet Styles**/
+@media (min-width:680px){
+
+
+    nav ul li{
+        display:inline-block;
+    }
+
+
+    /**Tablet Grid System**/
+    .nav-grid {
+        display: grid;
+        grid-template-areas:
+        'nav-col1 nav-col1 nav-col2';
+        gap:10px;
+    }
+
+    .container-1 {
+        display: grid;
+        grid-template-areas:
+          'col1 col1 col2 col2';
+        gap:10px;
+    }
+    
+    .col1{
+        grid-area: col1;
+    }
+    
+    .col2{
+        grid-area: col2;
+    }
+
+    .container-2 {
+        display: grid;
+        grid-template-areas:
+          'col3 col3 col4 col4'
+          'col5 col5 col5 col5';
+        gap:10px;
+    }
+    
+    .col3{
+        grid-area: col3;
+    }
+    
+    .col4{
+        margin-top: 50px;
+        grid-area: col4;
+    }
+
+    .col5{
+        margin-top: 50px;
+        grid-area: col5;
+    }
+
+    /** Home page specific styles**/
+    #profile-pic{
+        margin:20px;
+     }
+ 
+     #home-bio{
+         margin-left:auto;
+         margin-right:auto;
+         margin-top:20vh;
+     }
+ 
+     #home-video-feature{
+         margin-left:auto;
+         margin-right:auto;
+     }
+
+   /** Resume Page Grid**/
+    .resume-grid-1{
+        display: grid;
+        grid-template-areas:
+          'resume-col1 resume-col2';
+    }
+
+    .resume-col1{
+        grid-area: resume-col1;
+    }
+
+    .resume-col2{
+        grid-area: resume-col2;
+    }
+
+    /**Fitness Page Grid**/
+    .fitness-data-grid{
+        display:grid;
+        grid-template-areas:
+         'fitness-grid-head fitness-grid-head'
+          'fitness-grid-col2 fitness-grid-col2'
+          'fitness-grid-col1 fitness-grid-col1';
+        gap:5px;
+    }
+
+    .fitness-grid-head{
+        grid-area:fitness-grid-head;
+    }
+
+    .fitness-grid-col1{
+        grid-area:fitness-grid-col1;
+    }
+
+    .fitness-grid-col2{
+        grid-area:fitness-grid-col2;
+    }
+
+/** Photo Grid*/
+.multi-image-container .image-block{
+    display: inline-block;
+    padding: 10px;
+    max-width: 240px;
+    margin: 0px auto;
+}
+
+
+
+
+.music-grid{
+    display: grid;
+    grid-template-areas:
+    'music-head music-head'
+      'music-col1 music-col2';
+    gap:10px;
+}
+
+.music-head{
+    grid-area: music-head;
+}
+
+.music-col1{
+    grid-area: music-col1;
+}
+
+.music-col2{
+    grid-area: music-col2;
+}
+
+}
+
+/**Desktop styles**/
+@media (min-width: 1080px) {
+    /**Homepage grid**/
+    .container-2 {
+        display: grid;
+        grid-template-areas:
+          'col3 col3 col5 col5'
+          'col4 col4 col5 col5';
+    }
+    
+    .col3{
+        grid-area: col3;
+    }
+    
+    .col4{
+        margin-top:0px;
+        grid-area: col4;
+    }
+
+    .col5{
+        margin-top:10vh;
+        grid-area: col5;
+    }
+
+
+}

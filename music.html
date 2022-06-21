@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+    <head>
+        <!-- Meta information that does not appear in the browser-->
+        <meta name="description" content="Cole Wuilleumier Music.">
+        <meta name="author" content="Cole Wuilleumier">
+        <meta charset="UTF-8">
+        <title>Music</title>
+        <link rel="stylesheet" href="./styles/main.css">
+        <!-- Include Scripts -->
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="./scripts/tinyPhotoGallery.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="nav-grid">
+                <div class="nav-col1">
+                    <h1>Cole Wuilleumier: Music</h1>
+                </div>
+                 <!--Main Navigation Bar-->
+                 <div class="nav-col2">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="./index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="./fitness.html">Health/Fitness</a>
+                            </li>
+                            <li>
+                                <a href="./photos.html">Photos</a>
+                            </li>
+                            <li>
+                                <a href="./music.html">Music</a>
+                            </li>
+                            <li>
+                                <a href="./contact.html">Contact</a>
+                            </li>
+                            <li>
+                                <a href="./resume.html">Resume</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <noscript>
+            You must have Javascript enabled to view this page!
+            <style>
+                .main-container{
+                    display: none;
+                }
+            </style>
+         </noscript>
+    <main>
+        <div class="main-container">
+        <section>
+           <div>
+                <article>
+                    <h2>Kid Mountain</h2>
+                    <p>I am the lead-singer/guitar player in the band Kid Mountain.</p>
+                    <p>Starting in 2011, Kid Mountain has been working to make accessible eclectic music that bridges the gap be tween dance tunes and thoughtful societal conversations that are stuffed into a box of enigmatic dreams.</p>
+                    
+                    <div id="tinyPhotoGalleryApp" class="music-image-container">
+                        <div v-bind:class="{ hide: !(multiView), show: multiView }">
+                            <div  v-for="(image, i) in images" class="image-block">
+                                <img v-on:click="switchImage(i)" :src="image.link"  :alt="image.alt" :title="image.title" :v-key="i">
+                            </div>
+                        </div>
+                        <div class="music-single-image-container" v-bind:class="{ hide: multiView, show: !(multiView)}">
+                            <figure>
+                                <img v-on:click="switchBack" :src="images[currentImage].link" :alt="images[currentImage].alt" :title="images[currentImage].title" >
+                                <figcaption><p>{{images[currentImage].alt}}</p></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+                <div>
+                    <article class="music-grid">
+                        <div class="music-head">
+                            <h3>The Birds are in Misery</h3>
+                            <table>
+                                <tr>
+                                    <td><b>Release Year:</b></td>
+                                    <td>2020</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Featured Tracks:</b></td>
+                                    <td>Hangman, Creepy Fingers, Bitter Body</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Related Content:</b></td>
+                                    <td><a href="https://vimeo.com/390349289/c5105e7c51" target="_blank">Hangman Music Video</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="music-col1">
+                            <img src="./images/kid_mountain/the_birds_are_in_misery.jpg" alt="Image of the Birds are in Misery album cover" title="Image of the Birds are in Misery album cover">
+                        </div>
+                        <div class="music-col2">
+                            <iframe class="music-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/4RxHvgBM43MpaH1naBO8Dh?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                    </article>
+                    <hr>
+                    <br>
+                    <article class="music-grid">
+                        <div class="music-head">
+                            <h3>Trinkles</h3>
+                            <table>
+                                <tr>
+                                    <td><b>Release Year:</b></td>
+                                    <td>2016</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Featured Tracks:</b></td>
+                                    <td>Walk Around, Mindless</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="music-col1">
+                            <img src="./images/kid_mountain/trinkles.jpg" alt="Image of the Trinkles album cover" title="Image of the Trinkles album cover">
+                        </div>
+                        <div class="music-col2">
+                            <iframe class="music-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/1l1FI7GB5nFD4jUdPKLtgi?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>   
+                    </article>
+                    <hr>
+                    <br>
+                    <article class="music-grid">
+                        <div class="music-head">
+                            <h3>Happies</h3>
+                            <table>
+                                <tr>
+                                    <td><b>Release Year:</b></td>
+                                    <td>2012</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Featured Tracks:</b></td>
+                                    <td>Happy Lappies, Parashootin, Clouds</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="music-col1">
+                            <img src="./images/kid_mountain/happies.jpg" alt="Image of the Happies album cover" title="Image of the Happies album cover">
+                        </div>
+                        <div class="music-col2">
+                            <iframe class="music-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/5VpidFiQk9ymGpSlVgsmd3?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                    </article>
+                </div>
+           </div>
+        </section>
+    </main>
+</div>
+        <footer>
+            <p>&copy; Cole Wuilleumier, 2022</p>
+        </footer>
+    </body>
+</html>

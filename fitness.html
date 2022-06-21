@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+    <head lang='en-us'>
+        <!-- Meta information that does not appear in the browser-->
+        <meta name="description" content="Overview of Cole Wuilleumier's fitness activities and health data.">
+        <meta name="author" content="Cole Wuilleumier">
+        <meta charset="UTF-8">
+        <title>Fitness</title>
+        <link rel="stylesheet" href="./styles/main.css">
+
+        <!-- Include Scripts-->
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./scripts/fitness.js" defer></script>
+
+    </head>
+    <body>
+        <header>
+            <div class="nav-grid">
+                <div class="nav-col1">
+                    <h1>Cole Wuilleumier: Fitness</h1>
+                </div>
+                 <!--Main Navigation Bar-->
+                 <div class="nav-col2">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="./index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="./fitness.html">Health/Fitness</a>
+                            </li>
+                            <li>
+                                <a href="./photos.html">Photos</a>
+                            </li>
+                            <li>
+                                <a href="./music.html">Music</a>
+                            </li>
+                            <li>
+                                <a href="./contact.html">Contact</a>
+                            </li>
+                            <li>
+                                <a href="./resume.html">Resume</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <noscript>
+            You must have Javascript enabled to view this page!
+            <style>
+                .main-container{
+                    display: none;
+                }
+            </style>
+        </noscript>
+        <main class="main-container" id="fitnessApp">
+            <article class="header-buttons">
+                <ul>
+                    <li v-on:click="showHeartRateFunc" :class="[showHeartrate ? 'active' : '']"><div>Heart Rate</div></li>
+                    <li v-on:click="showSleepStressFunc" :class="[showSleep? 'active' : '']"><div>Sleep/Stress</div></li>
+                    <li v-on:click="showStepsFunc" :class="[showSteps? 'active' : '']"><div>Steps</div></li>
+                </ul>
+            </article>
+            <article class="fitness-data-grid" :class="[showHeartrate ? 'show' : 'hide']">
+                <div class="fitness-grid-head">
+                    <h2>Heart Rate</h2>
+                    <p>
+                        Recently I have started tracking my workouts and daily activities to keep tabs on my overall fitness. The information on this page was gathered using my fitness tracking Garmin Instinct Solar watch.
+                    </p>
+                </div>
+                <div class="fitness-grid-col2">
+                    <canvas id="heartRateChart"></canvas>
+                </div>
+                <div class="fitness-grid-col1">
+                    <p>Below is the raw data for my average resting heartrate over the last 4 weeks as of 6/19/2022.</p>
+                    <table id="heartrate" class="fitness-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Avg Resting Heartrate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="heartrate in heartrateData">
+                                <td>{{heartrate.Date}}</td>
+                                <td>{{heartrate["Resting Heart Rate"]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+            <article  class="fitness-data-grid" :class="[showSleep ? 'show' : 'hide']">
+                <div class="fitness-grid-head">
+                    <h2>Stress vs Hours of Sleep</h2>
+                    <p>This data is based on stress levels captured by my Garmin Instinct Solar. A stress level number is between 0 and 100. The more stress experienced throughout the day the higher the number will be.</p>
+                </div>
+                <div class="fitness-grid-col2">
+                    <canvas id="stressChart"></canvas>
+                </div>
+                <div class="fitness-grid-col1">
+                    <p>Below is the raw data for my sleep hours and stress levels by day over the last 4 weeks as of 6/19/2022. Days with less sleep typcially means my body will exprience more stress.</p>
+                    <table id="sleep" class="fitness-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Sleep Hours</th>
+                                <th>Stress Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="sleep in sleepData">
+                                <td>{{sleep.Date}}</td>
+                                <td>{{sleep["Sleep"]}}</td>
+                                <td>{{sleep["Stress"]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+            <article class="fitness-data-grid" :class="[showSteps ? 'show' : 'hide']">
+                <div class="fitness-grid-head">
+                    <h2>Steps</h2>
+                    <p>This chart is based on the number of steps I take in a day. Garmin automatically creates a "Step Goal" based on average steps taken in a given week. The "Actual" steps are the number of steps that I took on a given day.</p>
+                </div>
+
+                <div class="fitness-grid-col2">
+                    <canvas id="stepsChart"></canvas>
+                </div>
+                <div class="fitness-grid-col1">
+                    <p>Below is the raw data for my steps over the last 4 weeks as of 6/19/2022.</p>
+                    <table id="steps" class="fitness-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Actual</th>
+                                <th>Goal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="steps in stepsData">
+                                <td>{{steps.Date}}</td>
+                                <td>{{steps.Actual}}</td>
+                                <td>{{steps.Goal}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+        </main>
+        <footer>
+            <p>&copy; Cole Wuilleumier, 2022</p>
+        </footer>
+    </body>
+</html>
