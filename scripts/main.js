@@ -78,7 +78,7 @@ function validateEmail(email){
 
    //Check that first name is not null
    if(email =="" || email == null){
-       errors.push("Email  is required.");
+       errors.push("Email is required.");
    }
 
    //Check that the email is properly formatted. RegEx referenced from https://www.w3resource.com/javascript/form/email-validation.php
