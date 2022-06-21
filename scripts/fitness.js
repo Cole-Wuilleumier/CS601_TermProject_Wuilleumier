@@ -1,3 +1,10 @@
+/**
+ * Fitness:
+ * This Vue component works with the fitness.html page.
+ * It fetches data from an api and passes it to the view.
+ * It utilizes Chart.js to display the data in a readable format.
+ */
+
 const app = new Vue({
     el: '#fitnessApp',
     data: {

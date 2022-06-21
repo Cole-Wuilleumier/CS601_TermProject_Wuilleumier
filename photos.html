@@ -4,13 +4,25 @@
     <meta name="description" content="Photos of Cole Wuilleumier">
     <meta name="author" content="Cole Wuilleumier">
     <meta charset="UTF-8">
-    <title>Cole Wuilleumier</title>
+    <title>Photos of Cole Wuilleumier</title>
     <link rel="stylesheet" href="./styles/main.css">
         <!-- Include Scripts -->
         <script src="https://unpkg.com/vue@2"></script>
         <script src="./scripts/photoGallery.js" defer></script>
+
+        <!--Use if JavaScript is disabled-->
+        <noscript>
+            <style>
+                .main-container{
+                    display: none;
+                }
+            </style>
+        </noscript>
 </head>
 <body>
+    <noscript>
+        <p>You must have Javascript enabled to view this page!</p>
+    </noscript>
     <header>
         <div class="nav-grid">
             <div class="nav-col1">
@@ -43,14 +55,6 @@
             </div>
         </div>
     </header>
-    <noscript>
-        You must have Javascript enabled to view this page!
-        <style>
-            .main-container{
-                display: none;
-            }
-        </style>
-     </noscript>
     <main class="main-container" id="photoApp">
         <div class="image-buttons">
             <button class="float-left" v-bind:class="[  multiView ? '': 'active' ]" v-on:click="disableGalleryView">Normal View</button>
@@ -58,14 +62,14 @@
         </div>
         <section v-bind:class="{ hide: multiView, show: !(multiView) }" class="single-image-container">
             <figure>
-                <img :src="images[currentImage].link" :alt="images[currentImage].alt" :title="images[currentImage].title" >
+                <img v-bind:src="images[currentImage].link" v-bind:alt="images[currentImage].alt" v-bind:title="images[currentImage].title" >
                 <figcaption><p>{{images[currentImage].alt}}</p></figcaption>
             </figure>
             <br>
         </section>
         <section v-bind:class="{ show: multiView, hide: !(multiView) }" class="multi-image-container">
             <div class="image-block" v-for="(image, i) in images">
-                <img v-on:click="switchImage(i)" :src="image.link"  :alt="image.alt" :title="image.title" :v-key="i">
+                <img v-on:click="switchImage(i)" v-bind:src="image.link"  v-bind:alt="image.alt" v-bind:title="image.title" v-bind:v-key="i">
             </div>
         </section>
         <div v-bind:class="{ hide: multiView, show: !(multiView) }" class="image-buttons">
@@ -73,8 +77,9 @@
             <button v-on:click="nextImage">&gt;&gt;</button>
         </div>
     </main>
-    <footer>
+    <footer>     
+        <a href="./contact.html" class="contact-me-btn">Contact Me</a>
         <p>&copy; Cole Wuilleumier, 2022</p>
-    </footer>
+    </footer>        
 </body>
 </html>

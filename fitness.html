@@ -13,8 +13,19 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="./scripts/fitness.js" defer></script>
 
+        <!--Show this message if Javascript is disabled.-->
+        <noscript>
+            <style>
+                .main-container{
+                    display: none;
+                }
+            </style>
+        </noscript>
     </head>
     <body>
+        <noscript>
+            <p>You must have Javascript enabled to view this page!</p>
+        </noscript>
         <header>
             <div class="nav-grid">
                 <div class="nav-col1">
@@ -47,27 +58,19 @@
                 </div>
             </div>
         </header>
-        <noscript>
-            You must have Javascript enabled to view this page!
-            <style>
-                .main-container{
-                    display: none;
-                }
-            </style>
-        </noscript>
         <main class="main-container" id="fitnessApp">
             <article class="header-buttons">
                 <ul>
-                    <li v-on:click="showHeartRateFunc" :class="[showHeartrate ? 'active' : '']"><div>Heart Rate</div></li>
-                    <li v-on:click="showSleepStressFunc" :class="[showSleep? 'active' : '']"><div>Sleep/Stress</div></li>
-                    <li v-on:click="showStepsFunc" :class="[showSteps? 'active' : '']"><div>Steps</div></li>
+                    <li v-on:click="showHeartRateFunc" v-bind:class="[showHeartrate ? 'active' : '']"><div>Heart Rate</div></li>
+                    <li v-on:click="showSleepStressFunc" v-bind:class="[showSleep? 'active' : '']"><div>Sleep/Stress</div></li>
+                    <li v-on:click="showStepsFunc" v-bind:class="[showSteps? 'active' : '']"><div>Steps</div></li>
                 </ul>
             </article>
-            <article class="fitness-data-grid" :class="[showHeartrate ? 'show' : 'hide']">
+            <article class="fitness-data-grid" v-bind:class="[showHeartrate ? 'show' : 'hide']">
                 <div class="fitness-grid-head">
                     <h2>Heart Rate</h2>
                     <p>
-                        Recently I have started tracking my workouts and daily activities to keep tabs on my overall fitness. The information on this page was gathered using my fitness tracking Garmin Instinct Solar watch.
+                        Recently I have started tracking my workouts and daily activities to keep tabs on my overall fitness. The information on this page was gathered using my fitness tracking Garmin Instinct Solar watch. The chart below is based on my average resting heartrate.
                     </p>
                 </div>
                 <div class="fitness-grid-col2">
@@ -91,7 +94,7 @@
                     </table>
                 </div>
             </article>
-            <article  class="fitness-data-grid" :class="[showSleep ? 'show' : 'hide']">
+            <article  class="fitness-data-grid" v-bind:class="[showSleep ? 'show' : 'hide']">
                 <div class="fitness-grid-head">
                     <h2>Stress vs Hours of Sleep</h2>
                     <p>This data is based on stress levels captured by my Garmin Instinct Solar. A stress level number is between 0 and 100. The more stress experienced throughout the day the higher the number will be.</p>
@@ -119,12 +122,11 @@
                     </table>
                 </div>
             </article>
-            <article class="fitness-data-grid" :class="[showSteps ? 'show' : 'hide']">
+            <article class="fitness-data-grid" v-bind:class="[showSteps ? 'show' : 'hide']">
                 <div class="fitness-grid-head">
                     <h2>Steps</h2>
                     <p>This chart is based on the number of steps I take in a day. Garmin automatically creates a "Step Goal" based on average steps taken in a given week. The "Actual" steps are the number of steps that I took on a given day.</p>
                 </div>
-
                 <div class="fitness-grid-col2">
                     <canvas id="stepsChart"></canvas>
                 </div>
@@ -150,8 +152,9 @@
             </article>
 
         </main>
-        <footer>
+        <footer>     
+            <a href="./contact.html" class="contact-me-btn">Contact Me</a>
             <p>&copy; Cole Wuilleumier, 2022</p>
-        </footer>
+        </footer>        
     </body>
 </html>

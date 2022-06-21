@@ -1,5 +1,4 @@
 /**Contact Page Scripts */
-
 /**
  * validateForm
  * This function recieved the values from the form and validates each one.
@@ -70,6 +69,10 @@ function validateFullName(fullName){
     return errors;
 }
 
+/**
+ * validateEmail
+ * Checks that the email is not empty and is correctly formatted
+ */
 function validateEmail(email){
     errors = [];
 
@@ -78,7 +81,7 @@ function validateEmail(email){
        errors.push("Email  is required.");
    }
 
-   //Check that full name is alphabetical
+   //Check that the email is properly formatted. RegEx referenced from https://www.w3resource.com/javascript/form/email-validation.php
    if(!(new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(email))){
        errors.push("This is not a valid email address.");
    }
@@ -86,7 +89,12 @@ function validateEmail(email){
    return errors;
 }
 
+/**
+ * validatePhone
+ * Checks that the phone number is properly formatted
+ */
 function validatePhone(phone){
+    //Checks that the phone number is properly formatted. RegEx referenced from https://www.w3resource.com/javascript/form/phone-no-validation.php (tweaked a little)
     if(!(new RegExp(/^\+?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/).test(phone))){
         errors.push("This is not a valid phone number. A phone should be at least 10 digits, '-' are acceptable.");
     }

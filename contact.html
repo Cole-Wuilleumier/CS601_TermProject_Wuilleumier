@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang='en-us'>
 <head>
-    <meta name="description" content="A form to submit your name.">
+    <meta name="description" content="Contact Form for Cole Wuilleumier">
     <meta name="author" content="Cole Wuilleumier">
     <meta charset="UTF-8">
-    <title>A Form</title>
+    <title>Reach Out</title>
     <link rel="stylesheet" href="./styles/main.css">
     <script src="./scripts/main.js" defer></script>
+
+    <!--Use this if JavaScript is disabled-->
+    <noscript>
+        <style>
+            .main-container{
+                display: none;
+            }
+        </style>
+    </noscript>
 </head>
 <body>
+    <noscript>
+        You must have Javascript enabled to view this page!
+    </noscript>
     <header>
         <div class="nav-grid">
             <div class="nav-col1">
@@ -41,18 +53,12 @@
             </div>
         </div>
     </header>
-    <noscript>
-        You must have Javascript enabled to view this page!
-        <style>
-            .main-container{
-                display: none;
-            }
-        </style>
-    </noscript>
+
     <main>
         <div class="main-container">
             <section id="beforeFormSubmit" class="show">
                 <h2>Contact Form</h2>
+                <p>Looking to get in touch? Send me a message using the contact form below.</p>
                 <div id="errorDiv"></div>
                 <form name="contactForm" method="post" action="https://health-data-colew.netlify.app/.netlify/functions/api/contact">
                     <label for="fullName">Full name (required):</label>
@@ -79,8 +85,9 @@
             </section>
         </div>
     </main>
-    <footer>
+    <footer>     
+        <a href="./contact.html" class="contact-me-btn">Contact Me</a>
         <p>&copy; Cole Wuilleumier, 2022</p>
-    </footer>
+    </footer>       
 </body>
 </html>

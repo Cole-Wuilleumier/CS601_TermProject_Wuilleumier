@@ -1,4 +1,8 @@
-/** Photo Page Script */
+/**
+ * Tiny Photo Gallery
+ * This Vue component is used on the Music page to dispplay a small photo gallery.
+ * The images are clickable, allowig the user to see a gallery view image closer.
+ */
 const app = new Vue({
     el: '#tinyPhotoGalleryApp',
     data: {
